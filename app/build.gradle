@@ -1,0 +1,136 @@
+def secrets = System.getenv("GOOGLE_SERVICES_JSON")
+
+apply plugin: "com.android.application"
+
+android {
+    compileSdk = 36
+
+    def gitCommitHash = "local"
+    def shortCommitHash = "local"
+
+    defaultConfig {
+        applicationId = "pro.sketchware"
+        namespace = "pro.sketchware"
+        //noinspection ExpiredTargetSdkVersion since we don't target getting Sketchware Pro on Google Play.
+        targetSdk = 28
+        minSdk = 26
+        versionCode = 150
+        versionName = "v7.1.0"
+
+        buildConfigField("String", "GIT_HASH", "\"${gitCommitHash}\"")
+
+        buildConfigField("String", "SKETCHUB_API_KEY", "\"${System.getenv("SKETCHUB_API_KEY")}\"")
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.debug
+        }
+    }
+
+    packagingOptions {
+        resources.excludes += "license/*"
+        resources.excludes += "META-INF/DEPENDENCIES"
+        resources.pickFirsts += "api_database/*"
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled = true
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    androidResources {
+        additionalParameters.addAll("--stable-ids", "${rootDir}/public-stable-ids.txt")
+    }
+
+    signingConfigs {
+        debug {
+            storeFile = file("../testkey.keystore")
+            storePassword = "testkey"
+            keyAlias = "testkey"
+            keyPassword = "testkey"
+        }
+    }
+
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+
+
+    configurations.implementation {
+        exclude group: 'javax.inject', module: 'javax.inject'
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-scripting-compiler-embeddable"
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-scripting-common"
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-scripting-jvm"
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-script-runtime"
+    }
+}
+
+configurations.all {
+    exclude group: "xmlpull", module: "xmlpull"
+    exclude group: "net.sf.kxml", module: "kxml2"
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+
+    implementation libs.bundles.ui
+
+    implementation libs.bundles.image
+
+    implementation platform(libs.sora.editor)
+    implementation libs.bundles.editor.and.lang
+
+    implementation libs.bundles.coil
+
+    implementation libs.bundles.bundletool
+    implementation(libs.sdklib) {
+        exclude group: "com.intellij", module: "annotations"
+    }
+
+    implementation libs.bundles.shrinker
+    implementation libs.dalvik.dx
+    implementation libs.zipalign.java
+    implementation libs.apksig
+    implementation libs.conscrypt.android
+    implementation libs.androidsvg
+
+    implementation libs.asm
+    implementation libs.stringfog.core
+    implementation libs.stringfog.interface
+    implementation libs.stringfog.xor
+
+    implementation libs.gson
+    implementation libs.scpkix.jdk15on
+
+    implementation libs.markwon
+
+    implementation libs.bundles.networking
+
+    implementation libs.ecj
+
+    implementation libs.bundles.kotlin.compiler
+    compileOnly libs.kotlin.compiler
+
+    implementation libs.dependencyresolver
+    implementation libs.filepicker
+
+    implementation libs.libsu
+    implementation libs.insetter
+
+    implementation(libs.javaparser.symbol.solver) {
+        exclude group: "com.google.guava", module: "guava"
+    }
+
+    implementation platform(libs.firebase.bom)
+    implementation libs.bundles.firebase
+
+    coreLibraryDesugaring libs.desugar.jdk.libs.nio
+}
+
+apply from: "$rootDir/gradle/custom-tasks.gradle"
+

@@ -1,0 +1,12 @@
+# build outputs
+build/
+.gradle/
+local.properties
+*.apk
+*.aab
+app/build/
+
+# heavy runtime binaries - provided as GitHub Release assets
+app/src/main/assets/libs/
+app/src/main/assets/aapt/
+app/src/main/assets/icons/
