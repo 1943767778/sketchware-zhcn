@@ -168,7 +168,7 @@ public class ConfigActivity extends BaseAppCompatActivity {
         var binding = PreferenceActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.topAppBar.setTitle("App Settings");
+        binding.topAppBar.setTitle("应用设置");
         binding.topAppBar.setNavigationOnClickListener(Helper.getBackPressedClickListener(this));
         var fragment = new PreferenceFragment();
         fragment.setSnackbarView(binding.getRoot());
@@ -222,8 +222,8 @@ public class ConfigActivity extends BaseAppCompatActivity {
                 binding.chipGroupTypes.setVisibility(View.GONE);
                 AlertDialog dialog = new MaterialAlertDialogBuilder(requireContext())
                         .setView(binding.getRoot())
-                        .setTitle("Backup directory")
-                        .setMessage("Directory inside /Internal storage/, e.g. .sketchware/backups")
+                        .setTitle("备份目录")
+                        .setMessage("内部存储下的目录，例如 .sketchware/backups")
                         .setNegativeButton(R.string.common_word_cancel, null)
                         .setPositiveButton(R.string.common_word_save, null)
                         .create();
@@ -267,8 +267,8 @@ public class ConfigActivity extends BaseAppCompatActivity {
 
                 AlertDialog dialog = new MaterialAlertDialogBuilder(requireContext())
                         .setView(binding.getRoot())
-                        .setTitle("Backup filename format")
-                        .setMessage("This defines how SWB backup files get named.\n" +
+                        .setTitle("备份文件名格式")
+                        .setMessage("定义 SWB 备份文件的命名方式。\n" +
                                 "Available variables:\n" +
                                 " - $projectName - Project name\n" +
                                 " - $versionCode - App version code\n" +

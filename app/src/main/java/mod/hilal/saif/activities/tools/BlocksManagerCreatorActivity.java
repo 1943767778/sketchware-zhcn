@@ -135,7 +135,7 @@ public class BlocksManagerCreatorActivity extends BaseAppCompatActivity {
                     "Header (h)"
             );
             AtomicInteger choice = new AtomicInteger();
-            new MaterialAlertDialogBuilder(this).setTitle("Block type")
+            new MaterialAlertDialogBuilder(this).setTitle("块类型")
                     .setSingleChoiceItems(choices.toArray(new String[0]),
                             types.indexOf(Helper.getText(binding.type)), (dialog, which) -> choice.set(which))
                     .setPositiveButton(R.string.common_word_save, (dialog, which) -> binding.type.setText(types.get(choice.get())))
@@ -339,14 +339,14 @@ public class BlocksManagerCreatorActivity extends BaseAppCompatActivity {
         if (mode.equals("add")) {
             blockPosition = Integer.parseInt(getIntent().getStringExtra("pallet"));
             binding.colour.setText(palletColour);
-            getSupportActionBar().setTitle("Add a new block");
+            getSupportActionBar().setTitle("添加新块");
             return;
         }
         blockPosition = Integer.parseInt(getIntent().getStringExtra("pos"));
         binding.colour.setText(palletColour);
-        getSupportActionBar().setTitle("Insert block");
+        getSupportActionBar().setTitle("插入块");
         if (mode.equals("edit")) {
-            getSupportActionBar().setTitle("Edit block");
+            getSupportActionBar().setTitle("编辑块");
             fillUpInputs(blockPosition);
         }
     }
@@ -366,7 +366,7 @@ public class BlocksManagerCreatorActivity extends BaseAppCompatActivity {
         if (typeObject instanceof String typeString) {
 
             if (typeString.equals(" ")) {
-                binding.type.setText("regular");
+                binding.type.setText("常规");
             } else {
                 binding.type.setText(typeString);
             }
@@ -429,7 +429,7 @@ public class BlocksManagerCreatorActivity extends BaseAppCompatActivity {
         if (codeObject instanceof String) {
             binding.code.setText((String) codeObject);
         } else {
-            binding.code.setHint("(Invalid code block data)");
+            binding.code.setHint("（无效的代码块数据）");
         }
     }
 
@@ -471,7 +471,7 @@ public class BlocksManagerCreatorActivity extends BaseAppCompatActivity {
             if (matcher.find()) {
                 int position = matcher.end();
                 //Unable to resolve this error because the Rs class still undecompiled.
-                block.setText("Error: '%m' must be followed by '.param' at position " + position);
+                block.setText("错误：“%m”后面必须是“.param”，位于位置 " + position);
             } else {
                 block.setText(e.toString());
             }

@@ -201,7 +201,7 @@
                         android:singleLine="true"
                         android:textColor="?colorControlNormal"
                         android:textSize="18sp"
-                        android:text="Enable Dynamic Colors" />
+                        android:text="启用动态取色" />
 
                     <com.google.android.material.materialswitch.MaterialSwitch
                         android:id="@+id/dynamic_colors_switch"

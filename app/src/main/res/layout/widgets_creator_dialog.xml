@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="4dp"
-            android:hint="Widget class name">
+            android:hint="小部件类名">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/widget_name"
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="4dp"
-            android:hint="Select widget type">
+            android:hint="选择小部件类型">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/widget_type"

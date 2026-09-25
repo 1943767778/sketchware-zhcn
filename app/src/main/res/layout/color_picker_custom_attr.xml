@@ -10,7 +10,7 @@
         android:id="@+id/input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Entre your custom attr"
+        android:hint="输入自定义属性"
         app:placeholderText="R.attr.colorSurface">
 
         <com.google.android.material.textfield.TextInputEditText

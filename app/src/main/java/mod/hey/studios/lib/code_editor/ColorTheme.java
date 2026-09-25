@@ -2,12 +2,70 @@ package mod.hey.studios.lib.code_editor;
 
 import android.graphics.Color;
 
-public record ColorTheme(
-        int backgroundColor, int textColor,
-        int lineHighlightColor, int lineNumbersColor, int primaryColor,
-        int classColor, int symbolsColor, int stringsNumbersColor,
-        int commentsColor
-) {
+public final class ColorTheme {
+
+    public final int backgroundColor;
+    public final int textColor;
+    public final int lineHighlightColor;
+    public final int lineNumbersColor;
+    public final int primaryColor;
+    public final int classColor;
+    public final int symbolsColor;
+    public final int stringsNumbersColor;
+    public final int commentsColor;
+
+    public ColorTheme(
+            int backgroundColor, int textColor,
+            int lineHighlightColor, int lineNumbersColor, int primaryColor,
+            int classColor, int symbolsColor, int stringsNumbersColor,
+            int commentsColor) {
+        this.backgroundColor = backgroundColor;
+        this.textColor = textColor;
+        this.lineHighlightColor = lineHighlightColor;
+        this.lineNumbersColor = lineNumbersColor;
+        this.primaryColor = primaryColor;
+        this.classColor = classColor;
+        this.symbolsColor = symbolsColor;
+        this.stringsNumbersColor = stringsNumbersColor;
+        this.commentsColor = commentsColor;
+    }
+
+    public int backgroundColor() {
+        return backgroundColor;
+    }
+
+    public int textColor() {
+        return textColor;
+    }
+
+    public int lineHighlightColor() {
+        return lineHighlightColor;
+    }
+
+    public int lineNumbersColor() {
+        return lineNumbersColor;
+    }
+
+    public int primaryColor() {
+        return primaryColor;
+    }
+
+    public int classColor() {
+        return classColor;
+    }
+
+    public int symbolsColor() {
+        return symbolsColor;
+    }
+
+    public int stringsNumbersColor() {
+        return stringsNumbersColor;
+    }
+
+    public int commentsColor() {
+        return commentsColor;
+    }
+
 
     public static final ColorTheme DEFAULT = new ColorTheme(
             Color.parseColor("#fafafa"),

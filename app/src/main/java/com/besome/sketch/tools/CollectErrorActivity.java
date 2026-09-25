@@ -36,12 +36,12 @@ public class CollectErrorActivity extends BaseAppCompatActivity {
 
             var dialog = new MaterialAlertDialogBuilder(this)
                     .setTitle(R.string.common_error_an_error_occurred)
-                    .setMessage("An error occurred while running Sketchware Pro. " +
+                    .setMessage("运行 Sketchware Pro 时发生错误。" +
                             "Do you want to report this error log so that we can fix it? " +
                             "No personal information will be included.")
-                    .setPositiveButton("Copy", null)
-                    .setNegativeButton("Cancel", (dialogInterface, which) -> finish())
-                    .setNeutralButton("Show error", null) // null to set proper onClick listeners later without dismissing the AlertDialog
+                    .setPositiveButton("复制", null)
+                    .setNegativeButton("取消", (dialogInterface, which) -> finish())
+                    .setNeutralButton("显示错误", null) // null to set proper onClick listeners later without dismissing the AlertDialog
                     .setCancelable(false)
                     .show();
 
@@ -58,7 +58,7 @@ public class CollectErrorActivity extends BaseAppCompatActivity {
                     info = getPackageManager().getPackageInfo(getPackageName(), 0);
                 } catch (PackageManager.NameNotFoundException e) {
                     messageView.setTextIsSelectable(true);
-                    messageView.setText("Somehow couldn't get package info. Stack trace:\n" + Log.getStackTraceString(e));
+                    messageView.setText("无法获取包信息。堆栈跟踪：\n" + Log.getStackTraceString(e));
                     return;
                 }
 

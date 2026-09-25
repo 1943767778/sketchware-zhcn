@@ -1375,7 +1375,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
                 SafeFirebase.log("Loading font preview");
                 SafeFirebase.recordException(e);
                 typeface = Typeface.DEFAULT;
-                preview.setText("Couldn't load font");
+                preview.setText("无法加载字体");
             }
         }
 
@@ -1568,7 +1568,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
         }
 
         dialog.setView(customView);
-        dialog.setNeutralButton("Code Editor", (v, which) -> {
+        dialog.setNeutralButton("代码编辑器", (v, which) -> {
             AsdDialog editor = new AsdDialog(this);
             editor.setContent(ss.getArgValue().toString());
             editor.show();

@@ -67,7 +67,7 @@ public class BackupRestoreManager {
 
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(act);
         dialog.setIcon(R.drawable.ic_backup);
-        dialog.setTitle("Backup Options");
+        dialog.setTitle("备份选项");
 
         LinearLayout checkboxContainer = new LinearLayout(act);
         checkboxContainer.setOrientation(LinearLayout.VERTICAL);
@@ -99,7 +99,7 @@ public class BackupRestoreManager {
 
         CheckBox includeLocalLibraries = new CheckBox(act);
         includeLocalLibraries.setTag(localLibrariesTag);
-        includeLocalLibraries.setText("Include used Local libraries");
+        includeLocalLibraries.setText("包含用到的本地库");
         includeLocalLibraries.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -108,7 +108,7 @@ public class BackupRestoreManager {
 
         CheckBox includeUsedCustomBlocks = new CheckBox(act);
         includeUsedCustomBlocks.setTag(customBlocksTag);
-        includeUsedCustomBlocks.setText("Include used Custom Blocks");
+        includeUsedCustomBlocks.setText("包含用到的自定义块");
         includeUsedCustomBlocks.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -116,7 +116,7 @@ public class BackupRestoreManager {
         checkboxContainer.addView(includeUsedCustomBlocks);
 
         dialog.setView(checkboxContainer);
-        dialog.setPositiveButton("Back up", (v, which) -> {
+        dialog.setPositiveButton("备份", (v, which) -> {
             v.dismiss();
             doBackup(sc_id, project_name);
         });
@@ -135,7 +135,7 @@ public class BackupRestoreManager {
         FilePickerOptions options = new FilePickerOptions();
         options.setMultipleSelection(true);
         options.setExtensions(new String[]{BackupFactory.EXTENSION});
-        options.setTitle("Select backups to restore (" + BackupFactory.EXTENSION + ")");
+        options.setTitle("选择要恢复的备份（" + BackupFactory.EXTENSION + ")");
 
         FilePickerCallback callback = new FilePickerCallback() {
             @Override
@@ -150,8 +150,8 @@ public class BackupRestoreManager {
                                 .setTitle(R.string.common_word_warning)
                                 .setMessage(getRestoreIntegratedLocalLibrariesMessage(restoringMultipleBackups, i, files.size(),
                                         FileUtil.getFileNameNoExtension(backupFilePath)))
-                                .setPositiveButton("Copy", (dialog, which) -> doRestore(backupFilePath, true))
-                                .setNegativeButton("Don't copy", (dialog, which) -> doRestore(backupFilePath, false))
+                                .setPositiveButton("复制", (dialog, which) -> doRestore(backupFilePath, true))
+                                .setNegativeButton("不复制", (dialog, which) -> doRestore(backupFilePath, false))
                                 .setNeutralButton(R.string.common_word_cancel, null)
                                 .show();
 
@@ -188,9 +188,9 @@ public class BackupRestoreManager {
         @Override
         protected void onPreExecute() {
             ProgressMsgBoxBinding loadingDialogBinding = ProgressMsgBoxBinding.inflate(LayoutInflater.from(activityWeakReference.get()));
-            loadingDialogBinding.tvProgress.setText("Creating backup...");
+            loadingDialogBinding.tvProgress.setText("正在创建备份...");
             dlg = new MaterialAlertDialogBuilder(activityWeakReference.get())
-                    .setTitle("Please wait")
+                    .setTitle("请稍候")
                     .setCancelable(false)
                     .setView(loadingDialogBinding.getRoot())
                     .create();
@@ -240,9 +240,9 @@ public class BackupRestoreManager {
         @Override
         protected void onPreExecute() {
             ProgressMsgBoxBinding loadingDialogBinding = ProgressMsgBoxBinding.inflate(LayoutInflater.from(activityWeakReference.get()));
-            loadingDialogBinding.tvProgress.setText("Restoring...");
+            loadingDialogBinding.tvProgress.setText("正在恢复...");
             dlg = new MaterialAlertDialogBuilder(activityWeakReference.get())
-                    .setTitle("Please wait")
+                    .setTitle("请稍候")
                     .setCancelable(false)
                     .setView(loadingDialogBinding.getRoot())
                     .create();

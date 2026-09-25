@@ -19,7 +19,7 @@ public class ComponentHelper implements TextWatcher {
         String charSequence2 = s.toString();
         for (EditText editText : mEditArray) {
             editText.setText(charSequence2);
-            mTypeClass.setText("Component." + charSequence2);
+            mTypeClass.setText("组件。" + charSequence2);
         }
     }
 

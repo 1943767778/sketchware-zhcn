@@ -51,6 +51,6 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="10dp"
-        android:text="This icon is available under the Apache Licence Version 2.0. Press to read more." />
+        android:text="此图标基于 Apache License 2.0 提供，点击阅读更多。" />
 
 </LinearLayout>

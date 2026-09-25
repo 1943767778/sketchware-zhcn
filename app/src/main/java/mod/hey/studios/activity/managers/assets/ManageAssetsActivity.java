@@ -122,9 +122,9 @@ public class ManageAssetsActivity extends BaseAppCompatActivity {
         var dialog = new MaterialAlertDialogBuilder(this)
                 .setView(dialogBinding.getRoot())
                 .setTitle(R.string.assets_manager_add_new)
-                .setMessage("If you're creating a file, make sure to add an extension.")
-                .setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss())
-                .setPositiveButton("Create", null)
+                .setMessage("如果你在创建文件，请务必加上扩展名。")
+                .setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setPositiveButton("创建", null)
                 .create();
 
         dialog.setOnShowListener(dialogInterface -> {
@@ -167,7 +167,7 @@ public class ManageAssetsActivity extends BaseAppCompatActivity {
         FilePickerOptions options = new FilePickerOptions();
         options.setSelectionMode(SelectionMode.BOTH);
         options.setMultipleSelection(true);
-        options.setTitle("Select an asset file");
+        options.setTitle("选择资产文件");
 
         FilePickerCallback callback = new FilePickerCallback() {
             @Override
@@ -192,10 +192,10 @@ public class ManageAssetsActivity extends BaseAppCompatActivity {
         var inputText = dialogBinding.inputText;
 
         var dialog = new MaterialAlertDialogBuilder(this)
-                .setTitle("Rename " + assetsAdapter.getFileName(position))
+                .setTitle("重命名 " + assetsAdapter.getFileName(position))
                 .setView(dialogBinding.getRoot())
-                .setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss())
-                .setPositiveButton("Rename", (dialogInterface, i) -> {
+                .setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setPositiveButton("重命名", (dialogInterface, i) -> {
                     if (!Helper.getText(inputText).isEmpty()) {
                         FileUtil.renameFile(assetsAdapter.getItem(position), new File(current_path, Helper.getText(inputText)).getAbsolutePath());
                         refresh();
@@ -215,8 +215,8 @@ public class ManageAssetsActivity extends BaseAppCompatActivity {
 
     private void showDeleteDialog(int position) {
         new MaterialAlertDialogBuilder(this)
-                .setTitle("Delete " + assetsAdapter.getFileName(position) + "?")
-                .setMessage("Are you sure you want to delete this " + (assetsAdapter.isFolder(position) ? "folder" : "file") + "? "
+                .setTitle("删除 " + assetsAdapter.getFileName(position) + "?")
+                .setMessage("确定要删除此 " + (assetsAdapter.isFolder(position) ? "folder" : "file") + "? "
                         + "This action cannot be undone.")
                 .setPositiveButton(R.string.common_word_delete, (dialog, which) -> {
                     FileUtil.deleteFile(assetsAdapter.getItem(position));

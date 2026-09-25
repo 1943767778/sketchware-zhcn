@@ -292,7 +292,7 @@ public class ProjectsFragment extends DA {
         }
 
         dialog.setView(dialogBinding.getRoot());
-        dialog.setPositiveButton("Save", (v, which) -> {
+        dialog.setPositiveButton("保存", (v, which) -> {
             int sortValue = 0;
             if (sortByName.isChecked()) {
                 sortValue |= ProjectComparator.SORT_BY_NAME;
@@ -310,7 +310,7 @@ public class ProjectsFragment extends DA {
             v.dismiss();
             refreshProjectsList();
         });
-        dialog.setNegativeButton("Cancel", null);
+        dialog.setNegativeButton("取消", null);
         dialog.show();
     }
 

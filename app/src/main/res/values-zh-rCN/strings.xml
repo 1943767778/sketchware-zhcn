@@ -1714,4 +1714,9 @@ ACTION_VIEW
     <string name="widget_editor">控件编辑器</string>
     <string name="widget_type_title">控件类型</string>
     <string name="xml_strings">XML 字符串</string>
+    <string name="common_word_undo">撤销</string>
+    <string name="common_word_void">空</string>
+    <string name="common_word_tab_1">标签页 1</string>
+    <string name="common_word_tab_2">标签页 2</string>
+    <string name="common_word_tab_3">标签页 3</string>
 </resources>

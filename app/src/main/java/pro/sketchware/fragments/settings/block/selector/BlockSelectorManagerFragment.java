@@ -123,8 +123,8 @@ public class BlockSelectorManagerFragment extends qA {
 
     private void showCreateEditDialog(int index, boolean isEdit) {
         DialogBlockConfigurationBinding dialogBinding = DialogBlockConfigurationBinding.inflate(LayoutInflater.from(requireContext()));
-        dialogBinding.tilPalettesPath.setHint("Selector name");
-        dialogBinding.tilBlocksPath.setHint("Selector title (ex: Select View:)");
+        dialogBinding.tilPalettesPath.setHint("选择器名称");
+        dialogBinding.tilBlocksPath.setHint("选择器标题（例如：选择视图：）");
 
         if (isEdit) {
             dialogBinding.palettesPath.setText(selectors.get(index).getName());
@@ -172,14 +172,14 @@ public class BlockSelectorManagerFragment extends qA {
             adapter.notifyDataSetChanged();
             v.dismiss();
         });
-        dialog.setNegativeButton("Cancel", (v, which) -> v.dismiss());
+        dialog.setNegativeButton("取消", (v, which) -> v.dismiss());
         dialog.show();
     }
 
     private void showActionsDialog(int index) {
         DialogSelectorActionsBinding dialogBinding = DialogSelectorActionsBinding.inflate(LayoutInflater.from(requireContext()));
         AlertDialog dialog = new MaterialAlertDialogBuilder(requireActivity()).create();
-        dialog.setTitle("Actions");
+        dialog.setTitle("操作");
         dialog.setView(dialogBinding.getRoot());
 
         dialogBinding.edit.setOnClickListener(v -> {
@@ -207,10 +207,10 @@ public class BlockSelectorManagerFragment extends qA {
 
     private void showConfirmationDialog(String message, ConfirmListener onConfirm, CancelListener onCancel) {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(requireActivity());
-        dialog.setTitle("Attention");
+        dialog.setTitle("注意");
         dialog.setMessage(message);
-        dialog.setPositiveButton("Yes", (v, which) -> onConfirm.onConfirm(v));
-        dialog.setNegativeButton("Cancel", (v, which) -> onCancel.onCancel(v));
+        dialog.setPositiveButton("是", (v, which) -> onConfirm.onConfirm(v));
+        dialog.setNegativeButton("取消", (v, which) -> onCancel.onCancel(v));
         dialog.setCancelable(false);
         dialog.show();
     }
@@ -232,7 +232,7 @@ public class BlockSelectorManagerFragment extends qA {
 
     private void showImportSelectorDialog() {
         FilePickerOptions options = new FilePickerOptions();
-        options.setTitle("Select .json selector file");
+        options.setTitle("选择 .json 选择器文件");
         options.setExtensions(new String[]{"json"});
 
         FilePickerCallback callback = new FilePickerCallback() {

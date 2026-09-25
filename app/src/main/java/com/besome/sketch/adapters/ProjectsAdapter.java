@@ -313,10 +313,10 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Projec
 
         if (isPinned(projectMap)) {
             binding.pinIcon.setImageResource(R.drawable.ic_mtrl_unpin);
-            binding.pinText.setText("Unpin project");
+            binding.pinText.setText("取消置顶项目");
         } else {
             binding.pinIcon.setImageResource(R.drawable.ic_mtrl_pin);
-            binding.pinText.setText("Pin project");
+            binding.pinText.setText("置顶项目");
         }
 
         projectOptionsBSD.show();

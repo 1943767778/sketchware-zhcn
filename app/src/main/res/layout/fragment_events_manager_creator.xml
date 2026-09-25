@@ -63,7 +63,7 @@
                             android:id="@+id/events_creator_varname"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Widget/Component name" />
+                            android:hint="小部件/组件名称" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <RelativeLayout
@@ -133,7 +133,7 @@
                             android:id="@+id/events_creator_spec"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Spec  (### => Variable name)"
+                            android:hint="定义（### => 变量名）"
                             android:textSize="14sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -146,7 +146,7 @@
                             android:id="@+id/events_creator_code"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Event code (### ==> Variable name)" />
+                            android:hint="事件代码（### ==> 变量名）" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
@@ -190,7 +190,7 @@
                                     android:id="@+id/events_creator_listenercode"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Listener Code (### ==> variable name)"
+                                    android:hint="监听器代码（### ==> 变量名）"
                                     android:textSize="14sp" />
                             </com.google.android.material.textfield.TextInputLayout>
 

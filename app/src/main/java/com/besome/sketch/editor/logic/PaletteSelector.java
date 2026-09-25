@@ -152,11 +152,42 @@ public class PaletteSelector extends RecyclerView {
         initialize(listener);
     }
 
-    public record paletteSelectorRecord(int index, String text, int color) {
+    public static class paletteSelectorRecord {
+
+        public final int index;
+        public final String text;
+        public final int color;
+
+        public paletteSelectorRecord(int index, String text, int color) {
+            this.index = index;
+            this.text = text;
+            this.color = color;
+        }
+
+        public int index() {
+            return index;
+        }
+
+        public String text() {
+            return text;
+        }
+
+        public int color() {
+            return color;
+        }
     }
 
-    public record SimpleTextWatcher(
-            java.util.function.Consumer<CharSequence> onTextChanged) implements android.text.TextWatcher {
+    public static class SimpleTextWatcher implements android.text.TextWatcher {
+
+        private final java.util.function.Consumer<CharSequence> onTextChanged;
+
+        public SimpleTextWatcher(java.util.function.Consumer<CharSequence> onTextChanged) {
+            this.onTextChanged = onTextChanged;
+        }
+
+        public java.util.function.Consumer<CharSequence> onTextChanged() {
+            return onTextChanged;
+        }
 
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {

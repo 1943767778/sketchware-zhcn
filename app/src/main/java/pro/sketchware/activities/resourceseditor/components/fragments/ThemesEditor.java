@@ -124,8 +124,8 @@ public class ThemesEditor extends Fragment {
     public void showAddThemeDialog() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(activity);
         StyleEditorAddBinding binding = StyleEditorAddBinding.inflate(getLayoutInflater());
-        dialog.setTitle("Create new theme");
-        dialog.setPositiveButton("Create", (d, which) -> {
+        dialog.setTitle("新建主题");
+        dialog.setPositiveButton("创建", (d, which) -> {
             String themeName = Objects.requireNonNull(binding.styleName.getText()).toString();
             String parent = Objects.requireNonNull(binding.styleParent.getText()).toString();
             String header = Objects.requireNonNull(binding.styleHeaderInput.getText()).toString();
@@ -161,8 +161,8 @@ public class ThemesEditor extends Fragment {
             binding.styleHeaderInput.setText(notesMap.get(position));
         }
 
-        dialog.setTitle("Edit theme");
-        dialog.setPositiveButton("Edit", (d, which) -> {
+        dialog.setTitle("编辑主题");
+        dialog.setPositiveButton("编辑", (d, which) -> {
             String themeName = Objects.requireNonNull(binding.styleName.getText()).toString();
             String parent = Objects.requireNonNull(binding.styleParent.getText()).toString();
             String header = Objects.requireNonNull(binding.styleHeaderInput.getText()).toString();
@@ -185,7 +185,7 @@ public class ThemesEditor extends Fragment {
         });
         dialog.setNeutralButton(Helper.getResString(R.string.common_word_delete), (d, which) -> new MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.common_word_warning)
-                .setMessage("Are you sure you want to delete " + theme.getStyleName() + "?")
+                .setMessage("确定要删除 " + theme.getStyleName() + "?")
                 .setPositiveButton(R.string.common_word_yes, (d2, w) -> {
                     themesList.remove(position);
                     notesMap.remove(position);
@@ -194,7 +194,7 @@ public class ThemesEditor extends Fragment {
                     updateNoContentLayout();
                     hasUnsavedChanges = true;
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton("取消", null)
                 .show());
         dialog.setNegativeButton(getString(R.string.cancel), null);
         dialog.setView(binding.getRoot());
@@ -222,14 +222,14 @@ public class ThemesEditor extends Fragment {
                     public void onItemLongClick(LinkedHashMap<String, String> attributes, String attr) {
                         new MaterialAlertDialogBuilder(requireContext())
                                 .setTitle(R.string.common_word_warning)
-                                .setMessage("Are you sure you want to delete " + attr + "?")
+                                .setMessage("确定要删除 " + attr + "?")
                                 .setPositiveButton(R.string.common_word_yes, (d, w) -> {
                                     attributes.remove(attr);
                                     theme.setAttributes(attributes);
                                     attributesAdapter.submitList(new ArrayList<>(attributes.keySet()));
                                     hasUnsavedChanges = true;
                                 })
-                                .setNegativeButton("Cancel", null)
+                                .setNegativeButton("取消", null)
                                 .create()
                                 .show();
                     }

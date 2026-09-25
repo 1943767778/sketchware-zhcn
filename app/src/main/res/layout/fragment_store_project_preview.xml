@@ -138,7 +138,7 @@
                 android:paddingHorizontal="24dp"
                 android:paddingTop="12dp"
                 android:paddingBottom="16dp"
-                android:text="About this project"
+                android:text="关于此项目"
                 android:textAppearance="?attr/textAppearanceTitleLargeEmphasized" />
 
             <androidx.constraintlayout.widget.ConstraintLayout

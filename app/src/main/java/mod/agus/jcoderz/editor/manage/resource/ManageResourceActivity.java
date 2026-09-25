@@ -195,9 +195,9 @@ public class ManageResourceActivity extends BaseAppCompatActivity {
         var dialog = new MaterialAlertDialogBuilder(this)
                 .setView(dialogBinding.getRoot())
                 .setTitle(isFolder ? "Create a new folder" : "Create a new file")
-                .setMessage("Enter a name for the new " + (isFolder ? "folder" : "file"))
-                .setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss())
-                .setPositiveButton("Create", null)
+                .setMessage("为新" + (isFolder ? "folder" : "file"))
+                .setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setPositiveButton("创建", null)
                 .create();
 
         dialogBinding.chipGroupTypes.setVisibility(View.GONE);
@@ -253,7 +253,7 @@ public class ManageResourceActivity extends BaseAppCompatActivity {
         FilePickerOptions options = new FilePickerOptions();
         options.setSelectionMode(SelectionMode.BOTH);
         options.setMultipleSelection(true);
-        options.setTitle("Select resource files");
+        options.setTitle("选择资源文件");
 
         FilePickerCallback callback = new FilePickerCallback() {
             @Override
@@ -285,8 +285,8 @@ public class ManageResourceActivity extends BaseAppCompatActivity {
         var dialog = new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.assets_manager_rename)
                 .setView(dialogBinding.getRoot())
-                .setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss())
-                .setPositiveButton("Rename", (dialogInterface, i) -> {
+                .setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setPositiveButton("重命名", (dialogInterface, i) -> {
                     if (!Helper.getText(inputText).isEmpty()) {
                         if (FileUtil.renameFile(path, path.substring(0, path.lastIndexOf("/")) + "/" + Helper.getText(inputText))) {
                             SketchwareUtil.toast("Renamed successfully");
@@ -316,8 +316,8 @@ public class ManageResourceActivity extends BaseAppCompatActivity {
 
     private void showDeleteDialog(int position) {
         new MaterialAlertDialogBuilder(this)
-                .setTitle("Delete " + Uri.fromFile(new File(adapter.getItem(position))).getLastPathSegment() + "?")
-                .setMessage("Are you sure you want to delete this " + (FileUtil.isDirectory(adapter.getItem(position)) ? "folder" : "file") + "? "
+                .setTitle("删除 " + Uri.fromFile(new File(adapter.getItem(position))).getLastPathSegment() + "?")
+                .setMessage("确定要删除此 " + (FileUtil.isDirectory(adapter.getItem(position)) ? "folder" : "file") + "? "
                         + "This action cannot be undone.")
                 .setPositiveButton(R.string.common_word_delete, (dialog, which) -> {
                     FileUtil.deleteFile(frc.listFileResource.get(position));

@@ -20,7 +20,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Enter padding value"
+            android:hint="输入内边距值"
             android:importantForAutofill="noExcludeDescendants"
             app:errorEnabled="true">
 
@@ -192,6 +192,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:minHeight="0dp"
-        android:text="Padding on all sides" />
+        android:text="四边内边距" />
 
 </LinearLayout>

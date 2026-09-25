@@ -149,7 +149,7 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
                                     MaterialAlertDialogBuilder dialog =
                                             new MaterialAlertDialogBuilder(this);
                                     dialog.setTitle(R.string.common_word_delete);
-                                    dialog.setMessage("Are you sure you want to delete this item?");
+                                    dialog.setMessage("确定要删除此项吗？");
                                     dialog.setPositiveButton(
                                             R.string.common_word_yes,
                                             (d, w) -> {
@@ -187,7 +187,7 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
         switch (item.getItemId()) {
             case 0 -> {
                 new MaterialAlertDialogBuilder(this)
-                        .setTitle("Select an XML")
+                        .setTitle("选择 XML")
                         .setAdapter(
                                 new ArrayAdapter<>(
                                         this, android.R.layout.simple_list_item_1, xmlFiles),
@@ -299,9 +299,8 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
 
     private void showConfirmationDialog() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
-        dialog.setTitle("Confirmation");
-        dialog.setMessage(
-                "Would you like to enable the new XML Command? It will speed up XML generation and compilation, but this change cannot be undone. Don’t worry, your previous changes with the XML Command Block will transfered here so it will remain unaffected.");
+        dialog.setTitle("确认");
+        dialog.setMessage("是否启用新的 XML 命令？它将加快 XML 生成与编译速度，且此更改无法撤销。请放心，你之前用 XML 命令块所做的更改会自动迁移到这里，不受影响。");
         dialog.setPositiveButton(
                 R.string.common_word_yes,
                 (d, w) -> {
@@ -332,7 +331,7 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
                                     new MaterialAlertDialogBuilder(this)
                                             .setTitle(filename)
                                             .setCancelable(false)
-                                            .setPositiveButton("Dismiss", null);
+                                            .setPositiveButton("关闭", null);
 
                             runOnUiThread(
                                     () -> {

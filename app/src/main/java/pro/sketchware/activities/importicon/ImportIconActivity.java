@@ -281,9 +281,9 @@ public class ImportIconActivity extends BaseAppCompatActivity implements IconAda
 
         var dialog = new MaterialAlertDialogBuilder(this)
                 .setView(dialogBinding.getRoot())
-                .setTitle("Filter icons")
-                .setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss())
-                .setPositiveButton("Apply", null)
+                .setTitle("筛选图标")
+                .setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setPositiveButton("应用", null)
                 .create();
         dialog.setView(dialogBinding.getRoot());
 
@@ -400,8 +400,8 @@ public class ImportIconActivity extends BaseAppCompatActivity implements IconAda
         var dialog = new MaterialAlertDialogBuilder(this)
                 .setView(dialogBinding.getRoot())
                 .setTitle(R.string.common_word_save)
-                .setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss())
-                .setPositiveButton("Save", null)
+                .setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setPositiveButton("保存", null)
                 .create();
 
         dialog.setOnShowListener(dialogInterface -> {

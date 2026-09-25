@@ -28,7 +28,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
-                android:hint="Minimum SDK version">
+                android:hint="最低 SDK 版本">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_minimum_sdk_version"
@@ -44,7 +44,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
-                android:hint="Target SDK version">
+                android:hint="目标 SDK 版本">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_target_sdk_version"
@@ -60,7 +60,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
-                android:hint="Application class name">
+                android:hint="Application 类名">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_application_class_name"
@@ -136,7 +136,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Remove old deprecated methods"
+                        android:text="移除旧的弃用方法"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textColor="?attr/colorOnSurface" />
 
@@ -144,7 +144,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="This will remove methods in files, like showMessage, getDip, etc."
+                        android:text="这会移除文件中的方法，如 showMessage、getDip 等。"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="?attr/colorOnSurfaceVariant" />
 
@@ -189,7 +189,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="This will replace e.g. Button with MaterialButton, be careful!"
+                        android:text="这会把例如 Button 替换为 MaterialButton，请谨慎操作！"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="?attr/colorOnSurfaceVariant" />
 

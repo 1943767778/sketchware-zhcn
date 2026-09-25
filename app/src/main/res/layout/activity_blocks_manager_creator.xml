@@ -277,7 +277,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Block import (e.g., android.view.View)"
+                        android:text="块导入（例如 android.view.View）"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -294,7 +294,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="top"
-                            android:hint="Enter imports line by line"
+                            android:hint="逐行输入导入语句"
                             android:textSize="14sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -303,7 +303,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Block embedded code"
+                        android:text="块嵌入代码"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="16sp"
                         android:textStyle="bold" />

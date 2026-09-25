@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="Create new view"
+            android:text="新建视图"
             app:icon="@drawable/ic_add_white_24dp" />
 
     </RelativeLayout>

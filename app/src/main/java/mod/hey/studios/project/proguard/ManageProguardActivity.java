@@ -58,7 +58,7 @@ public class ManageProguardActivity extends BaseAppCompatActivity
         }
 
         MaterialAlertDialogBuilder bld = new MaterialAlertDialogBuilder(this);
-        bld.setTitle("Select Local libraries");
+        bld.setTitle("选择本地库");
         bld.setMultiChoiceItems(
                 libraries,
                 enabledLibraries,

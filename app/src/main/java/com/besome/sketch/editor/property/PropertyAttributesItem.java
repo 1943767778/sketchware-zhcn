@@ -119,7 +119,7 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                 ((TextView) findViewById(R.id.tv_title)).setText(Helper.getResString(identifier));
                 return;
             }
-            tvValue.setText("Configure parent attributes");
+            tvValue.setText("配置父项属性");
             imgLeftIcon.setImageResource(icon);
         }
     }
@@ -191,13 +191,13 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                 }
             }
             new MaterialAlertDialogBuilder(getContext())
-                    .setTitle("Choose an attributes")
+                    .setTitle("选择属性")
                     .setAdapter(
                             new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, list), (d, w) -> {
                                 var attr = list.get(w);
                                 if (RELATIVE_IDS.contains(attr)) {
                                     new MaterialAlertDialogBuilder(getContext())
-                                            .setTitle("Choose an id")
+                                            .setTitle("选择 ID")
                                             .setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, ids), (d2, w2) -> {
                                                 var id = ids.get(w2);
                                                 if (new CircularDependencyDetector(beans, bean).isLegalAttribute(id, attr)) {
@@ -209,7 +209,7 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                                                     SketchwareUtil.toastError("IllegalStateException : Circular dependencies cannot exist in RelativeLayout");
                                                 }
                                             })
-                                            .setNegativeButton("Cancel", (d2, which) -> d.dismiss())
+                                            .setNegativeButton("取消", (d2, which) -> d.dismiss())
                                             .show();
                                 } else {
                                     value.put(attr, "false");
@@ -218,7 +218,7 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                                     adapter.submitList(new ArrayList<>(value.keySet()));
                                 }
                             })
-                    .setNegativeButton("Cancel", (d, which) -> d.dismiss())
+                    .setNegativeButton("取消", (d, which) -> d.dismiss())
                     .show();
         });
     }
@@ -287,7 +287,7 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                     var filteredIds = new ArrayList<>(ids);
                     filteredIds.remove(value.get(attr));
                     new MaterialAlertDialogBuilder(getContext())
-                            .setTitle("Choose an id")
+                            .setTitle("选择 ID")
                             .setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, filteredIds), (d, w) -> {
                                 var id = filteredIds.get(w);
                                 value.put(attr, id);
@@ -295,21 +295,21 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                                 if (valueChangeListener != null)
                                     valueChangeListener.a(key, value);
                             })
-                            .setNegativeButton("Cancel", (d, which) -> d.dismiss())
+                            .setNegativeButton("取消", (d, which) -> d.dismiss())
                             .show();
                 });
                 itemView.setOnLongClickListener(v -> {
                     MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(getContext());
                     dialog.setTitle(R.string.common_word_delete);
-                    dialog.setMessage("Are you sure you want to delete " + attr + "?");
-                    dialog.setPositiveButton("Yes", (view, which) -> {
+                    dialog.setMessage("确定要删除 " + attr + "?");
+                    dialog.setPositiveButton("是", (view, which) -> {
                         value.remove(attr);
                         if (valueChangeListener != null)
                             valueChangeListener.a(key, value);
                         submitList(new ArrayList<>(value.keySet()));
                         view.dismiss();
                     });
-                    dialog.setNegativeButton("No", (view, which) -> view.dismiss());
+                    dialog.setNegativeButton("否", (view, which) -> view.dismiss());
                     dialog.show();
                     return true;
                 });
@@ -337,8 +337,8 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                 itemView.setOnLongClickListener(v -> {
                     MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(getContext());
                     dialog.setTitle(R.string.common_word_delete);
-                    dialog.setMessage("Are you sure you want to delete " + attr + "?");
-                    dialog.setPositiveButton("Yes", (view, which) -> {
+                    dialog.setMessage("确定要删除 " + attr + "?");
+                    dialog.setPositiveButton("是", (view, which) -> {
                         value.remove(attr);
                         if (valueChangeListener != null)
                             valueChangeListener.a(key, value);
@@ -346,7 +346,7 @@ public class PropertyAttributesItem extends LinearLayout implements View.OnClick
                         view.dismiss();
                     });
 
-                    dialog.setNegativeButton("No", (view, which) -> view.dismiss());
+                    dialog.setNegativeButton("否", (view, which) -> view.dismiss());
                     dialog.show();
                     return true;
                 });

@@ -130,8 +130,8 @@ public class BlockSelectorDetailsFragment extends qA {
         }
 
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(requireActivity());
-        dialog.setTitle("New Selector Item");
-        dialog.setPositiveButton("Create", (v, which) -> {
+        dialog.setTitle("新建选择器项");
+        dialog.setPositiveButton("创建", (v, which) -> {
             String newItem = Helper.getText(dialogBinding.activityNameInput);
             if (newItem != null && !newItem.isEmpty()) {
                 if (!isEdit) {
@@ -144,7 +144,7 @@ public class BlockSelectorDetailsFragment extends qA {
             }
             v.dismiss();
         });
-        dialog.setNegativeButton("Cancel", null);
+        dialog.setNegativeButton("取消", null);
         dialog.setView(dialogBinding.getRoot());
         dialog.show();
     }
@@ -153,7 +153,7 @@ public class BlockSelectorDetailsFragment extends qA {
         DialogSelectorActionsBinding dialogBinding = DialogSelectorActionsBinding.inflate(LayoutInflater.from(requireContext()));
 
         AlertDialog dialog = new MaterialAlertDialogBuilder(requireActivity()).create();
-        dialog.setTitle("Actions");
+        dialog.setTitle("操作");
         dialog.setView(dialogBinding.getRoot());
 
         dialogBinding.edit.setOnClickListener(v -> {
@@ -182,10 +182,10 @@ public class BlockSelectorDetailsFragment extends qA {
 
     private void showConfirmationDialog(String message, OnDialogClickListener onConfirm, OnDialogClickListener onCancel) {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(requireActivity());
-        dialog.setTitle("Attention");
+        dialog.setTitle("注意");
         dialog.setMessage(message);
-        dialog.setPositiveButton("Yes", (v, which) -> onConfirm.onClick(v));
-        dialog.setNegativeButton("Cancel", (v, which) -> onCancel.onClick(v));
+        dialog.setPositiveButton("是", (v, which) -> onConfirm.onClick(v));
+        dialog.setNegativeButton("取消", (v, which) -> onCancel.onClick(v));
 
         dialog.show();
     }

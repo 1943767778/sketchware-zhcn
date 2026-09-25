@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Logcat hasn't captured anything yet"
+            android:text="Logcat 还没有捕获到任何内容"
             android:textColor="?attr/colorOnSurface"
             android:textSize="20sp" />
 
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="Keep this screen open then run your app"
+            android:text="保持此页面打开，然后运行你的应用"
             android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="14sp" />
 

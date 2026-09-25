@@ -569,7 +569,7 @@ public class ViewEditor extends RelativeLayout implements View.OnClickListener, 
         tvToolbar.setPadding((int) (dip * 16f), 0, 0, 0);
         tvToolbar.setGravity(Gravity.CENTER_VERTICAL);
         tvToolbar.setTextSize(15f);
-        tvToolbar.setText("Toolbar");
+        tvToolbar.setText("工具栏");
         tvToolbar.setTypeface(null, Typeface.BOLD);
         toolbar.addView(tvToolbar);
         shape.addView(toolbar);
@@ -812,10 +812,10 @@ public class ViewEditor extends RelativeLayout implements View.OnClickListener, 
     private void b(boolean z, boolean isCustomWidget) {
         if (isCustomWidget) {
             deleteIcon.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.ic_mtrl_edit));
-            deleteText.setText("Drag here to see the Actions");
+            deleteText.setText("拖到这里查看可用的操作");
         } else if (z) {
             deleteIcon.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.ic_mtrl_delete));
-            deleteText.setText("Drag here to delete");
+            deleteText.setText("拖到这里删除");
             setDeleteViewIconAndTextUi(false);
         }
         deleteView.bringToFront();

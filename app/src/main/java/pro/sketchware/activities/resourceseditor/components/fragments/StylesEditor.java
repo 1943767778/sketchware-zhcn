@@ -131,8 +131,8 @@ public class StylesEditor extends Fragment {
     public void showAddStyleDialog() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(requireActivity());
         StyleEditorAddBinding binding = StyleEditorAddBinding.inflate(getLayoutInflater());
-        dialog.setTitle("Create new style");
-        dialog.setPositiveButton("Create", (d, which) -> {
+        dialog.setTitle("新建样式");
+        dialog.setPositiveButton("创建", (d, which) -> {
             String styleName = Objects.requireNonNull(binding.styleName.getText()).toString();
             String parent = Objects.requireNonNull(binding.styleParent.getText()).toString();
             String header = Objects.requireNonNull(binding.styleHeaderInput.getText()).toString();
@@ -173,8 +173,8 @@ public class StylesEditor extends Fragment {
             binding.styleHeaderInput.setText(notesMap.get(position));
         }
 
-        dialog.setTitle("Edit style");
-        dialog.setPositiveButton("Edit", (d, which) -> {
+        dialog.setTitle("编辑样式");
+        dialog.setPositiveButton("编辑", (d, which) -> {
             String styleName = Objects.requireNonNull(binding.styleName.getText()).toString();
             String parent = Objects.requireNonNull(binding.styleParent.getText()).toString();
             String header = Objects.requireNonNull(binding.styleHeaderInput.getText()).toString();
@@ -196,7 +196,7 @@ public class StylesEditor extends Fragment {
         });
         dialog.setNeutralButton(Helper.getResString(R.string.common_word_delete), (d, which) -> new MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.common_word_warning)
-                .setMessage("Are you sure you want to delete " + style.getStyleName() + "?")
+                .setMessage("确定要删除 " + style.getStyleName() + "?")
                 .setPositiveButton(R.string.common_word_yes, (d2, w) -> {
                     stylesList.remove(position);
                     notesMap.remove(position);
@@ -205,7 +205,7 @@ public class StylesEditor extends Fragment {
                     updateNoContentLayout();
                     hasUnsavedChanges = true;
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton("取消", null)
                 .create()
                 .show());
         dialog.setNegativeButton(getString(R.string.cancel), null);
@@ -234,14 +234,14 @@ public class StylesEditor extends Fragment {
                     public void onItemLongClick(LinkedHashMap<String, String> attributes, String attr) {
                         new MaterialAlertDialogBuilder(requireContext())
                                 .setTitle(R.string.common_word_warning)
-                                .setMessage("Are you sure you want to delete " + attr + "?")
+                                .setMessage("确定要删除 " + attr + "?")
                                 .setPositiveButton(R.string.common_word_yes, (d, w) -> {
                                     attributes.remove(attr);
                                     style.setAttributes(attributes);
                                     attributesAdapter.submitList(new ArrayList<>(attributes.keySet()));
                                     hasUnsavedChanges = true;
                                 })
-                                .setNegativeButton("Cancel", null)
+                                .setNegativeButton("取消", null)
                                 .create()
                                 .show();
                     }

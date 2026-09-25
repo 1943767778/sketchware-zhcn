@@ -106,7 +106,7 @@ public class CustomBlocksDialog {
 
             } else {
                 context.runOnUiThread(() -> {
-                    dialogBinding.subtitle.setText("You haven't used any custom blocks in this project");
+                    dialogBinding.subtitle.setText("该项目尚未使用任何自定义块");
                     dialogBinding.progressIndicator.setVisibility(View.GONE);
                 });
             }
@@ -137,13 +137,13 @@ public class CustomBlocksDialog {
         AtomicInteger selectedPalette = new AtomicInteger(paletteList.size() - 1);
 
         new MaterialAlertDialogBuilder(context)
-                .setTitle("Import Custom blocks to")
+                .setTitle("将自定义块导入到")
                 .setSingleChoiceItems(paletteNames.toArray(new String[0]), selectedPalette.get(), (dialog, which) -> selectedPalette.set(which))
-                .setNegativeButton("Create new palette", (dialog, which) -> {
+                .setNegativeButton("新建块面板", (dialog, which) -> {
                     showCreatePaletteDialog(context, paletteList, paletteDir, customBlocksManager, list, blocksList, allBlocksList, blocksDir);
                     dialog.dismiss();
                 })
-                .setPositiveButton("Import", (dialog, which) -> {
+                .setPositiveButton("导入", (dialog, which) -> {
                     addBlocksToList(customBlocksManager, list, blocksList, selectedPalette.get() + 9);
                     allBlocksList.addAll(blocksList);
                     FileUtil.writeFile(blocksDir, new Gson().toJson(allBlocksList));
@@ -183,7 +183,7 @@ public class CustomBlocksDialog {
 
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(context);
         dialog.setIcon(R.drawable.icon_style_white_96);
-        dialog.setTitle("Create a new palette");
+        dialog.setTitle("创建新块面板");
 
         DialogPaletteBinding binding = DialogPaletteBinding.inflate(((Activity) context).getLayoutInflater());
 

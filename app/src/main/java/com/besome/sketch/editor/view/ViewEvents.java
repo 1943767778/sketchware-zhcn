@@ -137,8 +137,8 @@ public class ViewEvents extends LinearLayout {
                     binding.container.setOnLongClickListener(v -> {
                         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(itemView.getContext());
                         dialog.setIcon(R.drawable.delete_96);
-                        dialog.setTitle("Confirm Delete");
-                        dialog.setMessage("Click on Confirm to delete the selected Event.");
+                        dialog.setTitle("确认删除");
+                        dialog.setMessage("点击“确认”删除所选事件。");
 
                         dialog.setPositiveButton(Helper.getResString(R.string.common_word_delete), (view, which) -> {
                             view.dismiss();

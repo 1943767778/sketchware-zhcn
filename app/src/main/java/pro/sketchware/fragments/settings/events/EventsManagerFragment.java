@@ -150,7 +150,7 @@ public class EventsManagerFragment extends qA {
         var dialog = new MaterialAlertDialogBuilder(requireContext())
                 .setTitle(existingListener == null ? "New Listener" : "Edit Listener")
                 .setView(listenerBinding.getRoot())
-                .setPositiveButton("Save", (di, i) -> {
+                .setPositiveButton("保存", (di, i) -> {
                     String listenerName = Helper.getText(listenerBinding.listenerName);
                     if (!listenerName.isEmpty()) {
                         HashMap<String, Object> hashMap = existingListener != null ? existingListener : new HashMap<>();
@@ -171,7 +171,7 @@ public class EventsManagerFragment extends qA {
                         SketchwareUtil.toastError("Invalid name!");
                     }
                 })
-                .setNegativeButton("Cancel", (di, i) -> di.dismiss()).create();
+                .setNegativeButton("取消", (di, i) -> di.dismiss()).create();
         dialog.show();
     }
 
@@ -187,7 +187,7 @@ public class EventsManagerFragment extends qA {
 
     private void showImportEventsDialog() {
         FilePickerOptions options = new FilePickerOptions();
-        options.setTitle("Select a .txt file");
+        options.setTitle("选择 .txt 文件");
         options.setExtensions(new String[]{"txt"});
 
         FilePickerCallback callback = new FilePickerCallback() {
@@ -326,14 +326,14 @@ public class EventsManagerFragment extends qA {
                                     break;
                                 case 2:
                                     new MaterialAlertDialogBuilder(context)
-                                            .setTitle("Delete listener")
-                                            .setMessage("Are you sure you want to delete this item?")
-                                            .setPositiveButton("Yes", (di, i) -> {
+                                            .setTitle("删除监听器")
+                                            .setMessage("确定要删除此项吗？")
+                                            .setPositiveButton("是", (di, i) -> {
                                                 deleteRelatedEvents(name);
                                                 deleteItem(position);
                                                 di.dismiss();
                                             })
-                                            .setNegativeButton("No", (di, i) -> di.dismiss())
+                                            .setNegativeButton("否", (di, i) -> di.dismiss())
                                             .show();
                                     break;
                             }

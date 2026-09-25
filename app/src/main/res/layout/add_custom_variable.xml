@@ -29,7 +29,7 @@
             android:id="@+id/type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Type, e.g. File"
+            android:hint="类型，例如 File"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -43,7 +43,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name, e.g. file"
+            android:hint="名称，例如 file"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,7 +57,7 @@
             android:id="@+id/initializer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Initializer, e.g. new File() (optional)"
+            android:hint="初始化语句，例如 new File()（可选）"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -102,7 +102,7 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
     public void openFileExplorerImport() {
         FilePickerOptions options = new FilePickerOptions();
         options.setExtensions(new String[]{"json"});
-        options.setTitle("Select a JSON file");
+        options.setTitle("选择 JSON 文件");
 
         FilePickerCallback callback = new FilePickerCallback() {
             @Override
@@ -218,13 +218,13 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
         blocks_path = getIntent().getStringExtra("dirB");
         _refreshLists();
         if (palette == -1) {
-            getSupportActionBar().setTitle("Recycle Bin");
+            getSupportActionBar().setTitle("回收站");
             fab_button.setVisibility(View.GONE);
         } else {
             Object paletteName = pallet_list.get(palette - 9).get("name");
 
             if (paletteName instanceof String) {
-                getSupportActionBar().setTitle("Manage Block");
+                getSupportActionBar().setTitle("管理块");
                 getSupportActionBar().setSubtitle((String) paletteName);
             }
         }
@@ -361,11 +361,11 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
 
                 case "Delete":
                     new MaterialAlertDialogBuilder(this)
-                            .setTitle("Delete block?")
-                            .setMessage("Are you sure you want to delete this block?")
-                            .setPositiveButton("Recycle bin", (dialog, which) -> _moveToRecycleBin(position))
+                            .setTitle("删除块？")
+                            .setMessage("确定要删除此块吗？")
+                            .setPositiveButton("回收站", (dialog, which) -> _moveToRecycleBin(position))
                             .setNegativeButton(R.string.common_word_cancel, null)
-                            .setNeutralButton("Delete permanently", (dialog, which) -> _deleteBlock(position))
+                            .setNeutralButton("永久删除", (dialog, which) -> _deleteBlock(position))
                             .show();
                     break;
 
@@ -422,9 +422,9 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
                 .setNegativeButton(R.string.common_word_cancel, null);
         if (palette == -1) {
             AtomicInteger restoreToChoice = new AtomicInteger(-1);
-            builder.setTitle("Restore to")
+            builder.setTitle("恢复到")
                     .setSingleChoiceItems(paletteNames.toArray(new String[0]), -1, (dialog, which) -> restoreToChoice.set(which))
-                    .setPositiveButton("Restore", (dialog, which) -> {
+                    .setPositiveButton("恢复", (dialog, which) -> {
                         if (restoreToChoice.get() != -1) {
                             all_blocks_list.get(position).put("palette", String.valueOf(restoreToChoice.get() + 9));
                             Collections.swap(all_blocks_list, position, all_blocks_list.size() - 1);
@@ -434,9 +434,9 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
                     });
         } else {
             AtomicInteger moveToChoice = new AtomicInteger(palette - 9);
-            builder.setTitle("Move to")
+            builder.setTitle("移动到")
                     .setSingleChoiceItems(paletteNames.toArray(new String[0]), palette - 9, (dialog, which) -> moveToChoice.set(which))
-                    .setPositiveButton("Move", (dialog, which) -> {
+                    .setPositiveButton("移动", (dialog, which) -> {
                         all_blocks_list.get(position).put("palette", String.valueOf(moveToChoice.get() + 9));
                         Collections.swap(all_blocks_list, position, all_blocks_list.size() - 1);
                         FileUtil.writeFile(blocks_path, getGson().toJson(all_blocks_list));
@@ -460,7 +460,7 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
                 }
             }
             MaterialAlertDialogBuilder import_dialog = new MaterialAlertDialogBuilder(this);
-            import_dialog.setTitle("Import blocks")
+            import_dialog.setTitle("导入块")
                     .setMultiChoiceItems(names.toArray(new CharSequence[0]), null, (dialog, which, isChecked) -> {
                         if (isChecked) {
                             toAdd.add(which);
@@ -468,7 +468,7 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
                             toAdd.remove((Integer) which);
                         }
                     })
-                    .setPositiveButton("Import", (dialog, which) -> {
+                    .setPositiveButton("导入", (dialog, which) -> {
                         for (int i = 0; i < blocks.size(); i++) {
                             if (toAdd.contains(i)) {
                                 HashMap<String, Object> map = blocks.get(i);
@@ -480,7 +480,7 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
                         _refreshLists();
                         SketchwareUtil.toast("Imported successfully");
                     })
-                    .setNegativeButton("Reverse", (dialog, which) -> {
+                    .setNegativeButton("反转", (dialog, which) -> {
                         for (int i = 0; i < blocks.size(); i++) {
                             if (!toAdd.contains(i)) {
                                 HashMap<String, Object> map = blocks.get(i);
@@ -492,7 +492,7 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
                         _refreshLists();
                         SketchwareUtil.toast("Imported successfully");
                     })
-                    .setNeutralButton("All", (dialog, which) -> {
+                    .setNeutralButton("全部", (dialog, which) -> {
                         for (int i = 0; i < blocks.size(); i++) {
                             HashMap<String, Object> map = blocks.get(i);
                             map.put("palette", String.valueOf(palette));
@@ -569,7 +569,7 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
                 spec.setHint("");
             } else {
                 name.setText("");
-                name.setHint("(Invalid block name entry)");
+                name.setHint("（无效的块名称）");
             }
 
             Object blockSpec = block.get("spec");
@@ -578,7 +578,7 @@ public class BlocksManagerDetailsActivity extends BaseAppCompatActivity {
                 spec.setHint("");
             } else {
                 spec.setText("");
-                spec.setHint("(Invalid block spec entry)");
+                spec.setHint("（无效的块定义）");
             }
 
             Object blockType = block.get("type");

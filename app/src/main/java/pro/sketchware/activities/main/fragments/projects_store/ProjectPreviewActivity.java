@@ -69,9 +69,9 @@ public class ProjectPreviewActivity extends BaseAppCompatActivity {
 
         addChip(project.getCategory());
 
-        binding.downloads.setText("Downloads: " + project.getDownloads());
-        binding.filesize.setText("Size: " + project.getProjectSize());
-        binding.timestamp.setText("Released: " + DateFormat.getDateInstance().format(new Date(Long.parseLong(project.getPublishedTimestamp()))));
+        binding.downloads.setText("下载量：" + project.getDownloads());
+        binding.filesize.setText("大小：" + project.getProjectSize());
+        binding.timestamp.setText("发布时间：" + DateFormat.getDateInstance().format(new Date(Long.parseLong(project.getPublishedTimestamp()))));
         binding.btnComments.setOnClickListener(v -> openCommentsSheet());
         binding.btnDownload.setOnClickListener(v -> SketchwareUtil.toastError("Downloading projects is unavailable right now!"));
         binding.btnOpenIn.setOnClickListener(v -> openProject());

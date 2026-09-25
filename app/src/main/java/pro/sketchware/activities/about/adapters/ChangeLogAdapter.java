@@ -52,7 +52,7 @@ public class ChangeLogAdapter extends RecyclerView.Adapter<ChangeLogAdapter.View
                 holder.binding.tvTitle.setText(titleText);
                 holder.binding.tvTitle.setVisibility(View.VISIBLE);
             } else {
-                holder.binding.tvTitle.setText("We've messed something up, sorry for the inconvenience!\n" +
+                holder.binding.tvTitle.setText("我们搞砸了一些东西，抱歉给你带来不便！\n" +
                         "(Details: Invalid data type of \"title\")");
                 holder.binding.tvTitle.setVisibility(View.VISIBLE);
             }
@@ -76,7 +76,7 @@ public class ChangeLogAdapter extends RecyclerView.Adapter<ChangeLogAdapter.View
         if (releaseDate > 0) {
             holder.binding.tvReleaseNote.setVisibility(View.VISIBLE);
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-            holder.binding.tvReleaseNote.setText("Released on: " + formatter.format(new Date(releaseDate)));
+            holder.binding.tvReleaseNote.setText("发布于：" + formatter.format(new Date(releaseDate)));
         } else {
             holder.binding.tvReleaseNote.setVisibility(View.GONE);
         }
@@ -86,7 +86,7 @@ public class ChangeLogAdapter extends RecyclerView.Adapter<ChangeLogAdapter.View
             holder.binding.tvSubTitle.setText(description);
             Linkify.addLinks(holder.binding.tvSubTitle, Linkify.WEB_URLS);
         } else {
-            holder.binding.tvSubTitle.setText("We've messed something up, sorry for the inconvenience!\n" +
+            holder.binding.tvSubTitle.setText("我们搞砸了一些东西，抱歉给你带来不便！\n" +
                     "(Details: Invalid data type of \"description\")");
         }
 

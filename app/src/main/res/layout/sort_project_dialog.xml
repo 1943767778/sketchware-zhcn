@@ -16,14 +16,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Sort by Project Name" />
+            android:text="按项目名排序" />
 
         <RadioButton
             android:id="@+id/sortByID"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Sort by ID" />
+            android:text="按 ID 排序" />
     </RadioGroup>
 
     <RadioGroup
@@ -37,13 +37,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Ascending (A-Z)" />
+            android:text="升序（A-Z）" />
 
         <RadioButton
             android:id="@+id/sortOrderDesc"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Descending (Z-A)" />
+            android:text="降序（Z-A）" />
     </RadioGroup>
 </LinearLayout>

@@ -349,7 +349,7 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
         });
 
         dialog.setNegativeButton(Helper.getResString(R.string.common_word_reset), null);
-        dialog.setNeutralButton("Custom", null);
+        dialog.setNeutralButton("自定义", null);
 
         AlertDialog alertDialog = dialog.create();
 
@@ -383,11 +383,11 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
                     binding.sliderSection.setVisibility(View.GONE);
                     binding.tiInput.setVisibility(View.VISIBLE);
                     binding.edInput.requestFocus();
-                    customButton.setText("Slider");
+                    customButton.setText("滑块");
                 } else {
                     binding.sliderSection.setVisibility(View.VISIBLE);
                     binding.tiInput.setVisibility(View.GONE);
-                    customButton.setText("Custom");
+                    customButton.setText("自定义");
                 }
             });
 
@@ -958,7 +958,7 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
                         var builder =
                                 new MaterialAlertDialogBuilder(getContext())
                                         .setTitle(R.string.common_word_delete)
-                                        .setMessage("Are you sure you want to delete " + attr + "?")
+                                        .setMessage("确定要删除 " + attr + "?")
                                         .setPositiveButton(
                                                 R.string.common_word_yes,
                                                 (d, w) -> {
@@ -1002,7 +1002,7 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
         var binding = PropertyPopupParentAttrBinding.inflate(LayoutInflater.from(getContext()));
         dialog.setContentView(binding.getRoot());
 
-        binding.title.setText("Shortcuts");
+        binding.title.setText("快捷方式");
         binding.viewId.setVisibility(View.GONE);
         binding.sourceCode.setVisibility(View.GONE);
         binding.shortcuts.setVisibility(View.GONE);
@@ -1028,15 +1028,15 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
             @Override
             public void onItemLongClick(LinkedHashMap<String, String> attributes, String attr) {
                 new MaterialAlertDialogBuilder(getContext())
-                        .setTitle("Delete Shortcut")
-                        .setMessage("Delete " + attr + "?")
-                        .setPositiveButton("Delete", (d, w) -> {
+                        .setTitle("删除快捷方式")
+                        .setMessage("删除 " + attr + "?")
+                        .setPositiveButton("删除", (d, w) -> {
                             manager.removeShortcut(attr);
                             attributes.remove(attr);
                             adapter.submitList(new ArrayList<>(attributes.keySet()));
                             adapter.notifyDataSetChanged();
                         })
-                        .setNegativeButton("Cancel", null)
+                        .setNegativeButton("取消", null)
                         .show();
             }
         });
@@ -1051,12 +1051,12 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
 
     private void showAddShortcutDialog(AttributeShortcutsManager manager, AttributesAdapter adapter) {
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext());
-        builder.setTitle("Add Shortcut");
+        builder.setTitle("添加快捷方式");
 
         StyleEditorAddAttrBinding binding = StyleEditorAddAttrBinding.inflate(LayoutInflater.from(getContext()));
         builder.setView(binding.getRoot());
 
-        builder.setPositiveButton("Save", (dialog, which) -> {
+        builder.setPositiveButton("保存", (dialog, which) -> {
             String name = binding.attrName.getText().toString().trim();
             String value = binding.attrValue.getText().toString().trim();
 
@@ -1072,13 +1072,13 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
             }
         });
 
-        builder.setNegativeButton("Cancel", null);
+        builder.setNegativeButton("取消", null);
         builder.show();
     }
 
     private void addNewAttribute(Map<String, String> attributes) {
         var builder = new MaterialAlertDialogBuilder(getContext());
-        builder.setTitle("Add new attribute");
+        builder.setTitle("添加新属性");
 
         PropertyPopupInputTextBinding binding =
                 PropertyPopupInputTextBinding.inflate(LayoutInflater.from(getContext()));
@@ -1086,7 +1086,7 @@ public class PropertyInputItem extends RelativeLayout implements View.OnClickLis
         var input = binding.edTiAutoCompleteInput;
         binding.tiInput.setVisibility(View.GONE);
         binding.tiAutoCompleteInput.setVisibility(View.VISIBLE);
-        binding.tiAutoCompleteInput.setHint("Enter new attribute");
+        binding.tiAutoCompleteInput.setHint("输入新属性");
         input.setAdapter(
                 new ArrayAdapter<>(
                         getContext(),

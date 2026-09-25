@@ -210,12 +210,12 @@ public class EventsManagerCreatorFragment extends qA {
         configureToolbar(binding.toolbar);
 
         if (isEdit) {
-            binding.toolbar.setTitle("Event Properties");
+            binding.toolbar.setTitle("事件属性");
             binding.toolbar.setSubtitle(event_name);
         } else if (isActivityEvent) {
-            binding.toolbar.setTitle("New Activity Event");
+            binding.toolbar.setTitle("新建 Activity 事件");
         } else {
-            binding.toolbar.setTitle("New Event");
+            binding.toolbar.setTitle("新建事件");
             binding.toolbar.setSubtitle(lisName);
         }
     }

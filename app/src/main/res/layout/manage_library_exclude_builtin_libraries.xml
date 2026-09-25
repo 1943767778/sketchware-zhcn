@@ -90,7 +90,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="No excluded built-in libraries found"
+                        android:text="没有已排除的内置库"
                         android:textAppearance="?attr/textAppearanceBodyLargeEmphasized"
                         android:textColor="?attr/colorOnSurface"
                         android:textStyle="bold" />
@@ -120,7 +120,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
-                        android:text="Excluded built-in libraries"
+                        android:text="已排除的内置库"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -149,7 +149,7 @@
                         android:layout_marginTop="16dp"
                         android:drawablePadding="12dp"
                         android:paddingEnd="16dp"
-                        android:text="This might break your project if you don't know what you're doing!"
+                        android:text="如果不清楚自己在做什么，这可能会破坏你的项目！"
                         android:textColor="?attr/colorError"
                         app:drawableStartCompat="@drawable/ic_mtrl_warning"
                         app:drawableTint="?attr/colorError" />

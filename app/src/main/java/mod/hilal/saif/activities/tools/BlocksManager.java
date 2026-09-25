@@ -206,7 +206,7 @@ public class BlocksManager extends BaseAppCompatActivity {
     private void showBlockConfigurationDialog() {
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
         dialog.setIcon(R.drawable.ic_folder_48dp);
-        dialog.setTitle("Block configuration");
+        dialog.setTitle("块配置");
 
         DialogBlockConfigurationBinding dialogBinding = DialogBlockConfigurationBinding.inflate(getLayoutInflater());
 
@@ -226,7 +226,7 @@ public class BlocksManager extends BaseAppCompatActivity {
 
         dialog.setNegativeButton(Helper.getResString(R.string.common_word_cancel), null);
 
-        dialog.setNeutralButton("Defaults", (view, which) -> {
+        dialog.setNeutralButton("默认", (view, which) -> {
             ConfigActivity.setSetting(ConfigActivity.SETTING_BLOCKMANAGER_DIRECTORY_PALETTE_FILE_PATH, ConfigActivity.getDefaultValue(ConfigActivity.SETTING_BLOCKMANAGER_DIRECTORY_PALETTE_FILE_PATH));
             ConfigActivity.setSetting(ConfigActivity.SETTING_BLOCKMANAGER_DIRECTORY_BLOCK_FILE_PATH, ConfigActivity.getDefaultValue(ConfigActivity.SETTING_BLOCKMANAGER_DIRECTORY_BLOCK_FILE_PATH));
 
@@ -312,7 +312,7 @@ public class BlocksManager extends BaseAppCompatActivity {
         }
 
         binding.paletteRecycler.setAdapter(new PaletteAdapter(pallet_listmap));
-        binding.recycleSub.setText("Blocks: " + (long) getN(-1));
+        binding.recycleSub.setText("块：" + (long) getN(-1));
         refreshCount();
     }
 
@@ -330,7 +330,7 @@ public class BlocksManager extends BaseAppCompatActivity {
 
     private void refreshCount() {
         if (pallet_listmap.isEmpty()) {
-            binding.paletteCount.setText("No palettes");
+            binding.paletteCount.setText("暂无块面板");
         } else {
             binding.paletteCount.setText(pallet_listmap.size() + " Palettes");
         }
@@ -346,10 +346,10 @@ public class BlocksManager extends BaseAppCompatActivity {
         });
         view.setOnLongClickListener(v -> {
             new MaterialAlertDialogBuilder(this)
-                    .setTitle("Recycle bin")
-                    .setMessage("Are you sure you want to empty the recycle bin? " +
+                    .setTitle("回收站")
+                    .setMessage("确定要清空回收站吗？" +
                             "Blocks inside will be deleted PERMANENTLY, you CANNOT recover them!")
-                    .setPositiveButton("Empty", (dialog, which) -> emptyRecyclebin())
+                    .setPositiveButton("清空", (dialog, which) -> emptyRecyclebin())
                     .setNegativeButton(R.string.common_word_cancel, null)
                     .show();
             return true;
@@ -568,10 +568,10 @@ public class BlocksManager extends BaseAppCompatActivity {
 
             holder.itemView.setVisibility(View.VISIBLE);
             holder.itemBinding.title.setText(Objects.requireNonNull(pallet_listmap.get(position).get("name")).toString());
-            holder.itemBinding.sub.setText("Blocks: " + (long) getN(position + 9));
+            holder.itemBinding.sub.setText("块：" + (long) getN(position + 9));
             holder.itemBinding.color.setBackgroundColor(backgroundColor);
             holder.itemBinding.dragHandler.setVisibility(View.VISIBLE);
-            binding.recycleSub.setText("Blocks: " + (long) getN(-1));
+            binding.recycleSub.setText("块：" + (long) getN(-1));
 
             holder.itemBinding.backgroundCard.setOnLongClickListener(v -> {
                 final String edit = "Edit";
@@ -595,8 +595,8 @@ public class BlocksManager extends BaseAppCompatActivity {
                         case delete:
                             new MaterialAlertDialogBuilder(BlocksManager.this)
                                     .setTitle(Objects.requireNonNull(pallet_listmap.get(pos).get("name")).toString())
-                                    .setMessage("Remove all blocks related to this palette?")
-                                    .setPositiveButton("Remove permanently", (dialog, which) -> {
+                                    .setMessage("移除与该块面板相关的所有块？")
+                                    .setPositiveButton("永久移除", (dialog, which) -> {
                                         palettes.remove(pos);
                                         notifyItemRemoved(pos);
                                         FileUtil.writeFile(pallet_dir, getGson().toJson(pallet_listmap));

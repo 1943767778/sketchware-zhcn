@@ -127,21 +127,21 @@ public class LogReaderActivity extends BaseAppCompatActivity {
         dialogBinding.imgDelete.setVisibility(View.GONE);
 
         var builder = new MaterialAlertDialogBuilder(this)
-                .setTitle("Filter by package name")
-                .setMessage("For multiple package names, separate them with a comma (,).")
+                .setTitle("按包名筛选")
+                .setMessage("多个包名请用逗号（,）分隔。")
                 .setIcon(R.drawable.ic_mtrl_filter)
                 .setView(view)
-                .setPositiveButton("Apply", (dialog, which) -> {
+                .setPositiveButton("应用", (dialog, which) -> {
                     pkgFilter = Helper.getText(dialogBinding.easyEdInput);
                     pkgFilterList = new ArrayList<>(Arrays.asList(pkgFilter.split(",")));
                     binding.searchInput.setText(Helper.getText(binding.searchInput));
                 })
-                .setNeutralButton("Reset", (dialog, which) -> {
+                .setNeutralButton("重置", (dialog, which) -> {
                     pkgFilter = "";
                     pkgFilterList.clear();
                     dialogBinding.easyEdInput.setText("");
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton("取消", null)
                 .create();
 
         builder.show();

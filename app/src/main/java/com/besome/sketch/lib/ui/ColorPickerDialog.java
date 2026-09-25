@@ -603,10 +603,26 @@ public class ColorPickerDialog extends PopupWindow {
         void selectedMaterialColorAttr(String attr, int attrColor);
     }
 
-    public record Attribute(String name, String title) {
+    public static class Attribute {
+
+        public final String name;
+        public final String title;
+
+        public Attribute(String name, String title) {
+            this.name = name;
+            this.title = title;
+        }
 
         public Attribute(String name) {
             this(name, null);
+        }
+
+        public String name() {
+            return name;
+        }
+
+        public String title() {
+            return title;
         }
 
         public boolean hasTitle() {
@@ -618,7 +634,29 @@ public class ColorPickerDialog extends PopupWindow {
         }
     }
 
-    public record ResColor(String colorName, int colorValue, int nightColorValue) {
+    public static class ResColor {
+
+        public final String colorName;
+        public final int colorValue;
+        public final int nightColorValue;
+
+        public ResColor(String colorName, int colorValue, int nightColorValue) {
+            this.colorName = colorName;
+            this.colorValue = colorValue;
+            this.nightColorValue = nightColorValue;
+        }
+
+        public String colorName() {
+            return colorName;
+        }
+
+        public int colorValue() {
+            return colorValue;
+        }
+
+        public int nightColorValue() {
+            return nightColorValue;
+        }
     }
 
     private class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ColorViewHolder> {

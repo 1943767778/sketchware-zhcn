@@ -1036,7 +1036,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
-                        android:text="Badge background color"
+                        android:text="徽章背景色"
                         android:textAppearance="?attr/textAppearanceBodyLarge"
                         android:textSize="12sp" />
 

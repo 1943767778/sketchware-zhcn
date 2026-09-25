@@ -159,10 +159,10 @@ public class LibraryDownloaderDialogFragment extends BottomSheetDialogFragment {
         }
 
         new MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Confirm Download")
+                .setTitle("确认下载")
                 .setMessage(message)
-                .setPositiveButton("Download", (dialog, which) -> startDownloadProcess(group, artifact, version))
-                .setNegativeButton("Cancel", null)
+                .setPositiveButton("下载", (dialog, which) -> startDownloadProcess(group, artifact, version))
+                .setNegativeButton("取消", null)
                 .show();
     }
 

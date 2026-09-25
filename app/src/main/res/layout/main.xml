@@ -44,7 +44,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Search for projects..."
+                        android:text="搜索项目..."
                         android:textColor="?attr/colorOnSurfaceVariant" />
                 </com.google.android.material.appbar.MaterialToolbar>
             </com.google.android.material.card.MaterialCardView>

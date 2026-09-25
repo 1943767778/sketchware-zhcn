@@ -1511,6 +1511,34 @@ public class ViewPane extends RelativeLayout {
         return "ViewPane{id=" + sc_id + ", childCount=" + getChildCount() + "}";
     }
 
-    private record ViewInfo(Rect rect, View view, int index, int depth) {
+    private static class ViewInfo {
+
+        public final Rect rect;
+        public final View view;
+        public final int index;
+        public final int depth;
+
+        ViewInfo(Rect rect, View view, int index, int depth) {
+            this.rect = rect;
+            this.view = view;
+            this.index = index;
+            this.depth = depth;
+        }
+
+        public Rect rect() {
+            return rect;
+        }
+
+        public View view() {
+            return view;
+        }
+
+        public int index() {
+            return index;
+        }
+
+        public int depth() {
+            return depth;
+        }
     }
 }

@@ -232,8 +232,8 @@ public class MainActivity extends BasePermissionAppCompatActivity {
                                 new MaterialAlertDialogBuilder(MainActivity.this)
                                         .setTitle(R.string.common_word_warning)
                                         .setMessage(BackupRestoreManager.getRestoreIntegratedLocalLibrariesMessage(false, -1, -1, null))
-                                        .setPositiveButton("Copy", (dialog, which) -> manager.doRestore(path, true))
-                                        .setNegativeButton("Don't copy", (dialog, which) -> manager.doRestore(path, false))
+                                        .setPositiveButton("复制", (dialog, which) -> manager.doRestore(path, true))
+                                        .setNegativeButton("不复制", (dialog, which) -> manager.doRestore(path, false))
                                         .setNeutralButton(R.string.common_word_cancel, null)
                                         .show();
                             } else {
@@ -341,14 +341,14 @@ public class MainActivity extends BasePermissionAppCompatActivity {
     @NonNull
     private BottomSheetDialogView getBottomSheetDialogView() {
         BottomSheetDialogView bottomSheetDialog = new BottomSheetDialogView(this);
-        bottomSheetDialog.setTitle("Major changes in v7.0.0");
+        bottomSheetDialog.setTitle("v7.0.0 主要更新");
         bottomSheetDialog.setDescription("""
                 There have been major changes since v6.3.0 fix1, \
                 and it's very important to know them all if you want your projects to still work.
                 
                 You can view all changes whenever you want at the About Sketchware Pro screen.""");
 
-        bottomSheetDialog.setPositiveButton("View changes", (dialog, which) -> {
+        bottomSheetDialog.setPositiveButton("查看更新", (dialog, which) -> {
             ConfigActivity.setSetting(ConfigActivity.SETTING_CRITICAL_UPDATE_REMINDER, true);
             Intent launcher = new Intent(this, AboutActivity.class);
             launcher.putExtra("select", "changelog");
@@ -403,14 +403,14 @@ public class MainActivity extends BasePermissionAppCompatActivity {
             if (!optOutFile.exists() && !granted) {
                 MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
                 dialog.setIcon(R.drawable.ic_expire_48dp);
-                dialog.setTitle("Android 11 storage access");
-                dialog.setMessage("Starting with Android 11, Sketchware Pro needs a new permission to avoid " + "taking ages to build projects. Don't worry, we can't do more to storage than " + "with current granted permissions.");
+                dialog.setTitle("Android 11 存储访问");
+                dialog.setMessage("从 Android 11 开始，Sketchware Pro 需要新权限以避免 " + "taking ages to build projects. Don't worry, we can't do more to storage than " + "with current granted permissions.");
                 dialog.setPositiveButton(Helper.getResString(R.string.common_word_settings), (v, which) -> {
                     FileUtil.requestAllFilesAccessPermission(this);
                     v.dismiss();
                 });
-                dialog.setNegativeButton("Skip", null);
-                dialog.setNeutralButton("Don't show anymore", (v, which) -> {
+                dialog.setNegativeButton("跳过", null);
+                dialog.setNeutralButton("不再显示", (v, which) -> {
                     try {
                         if (!optOutFile.createNewFile())
                             throw new IOException("Failed to create file " + optOutFile);

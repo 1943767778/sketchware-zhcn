@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="12dp"
         android:textAppearance="?attr/textAppearanceTitleMedium"
-        android:text="Select Import option" />
+        android:text="选择导入方式" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chip_group_import_type"
@@ -34,13 +34,13 @@
             android:id="@+id/chip_merge_and_skip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Merge and Skip" />
+            android:text="合并并跳过" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_merge_and_replace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Merge and Replace" />
+            android:text="合并并替换" />
 
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"

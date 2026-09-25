@@ -99,8 +99,8 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.ViewHold
                 dialogBinding.stringKeyInput.setEnabled(false);
             }
 
-            dialog.setTitle("Edit string");
-            dialog.setPositiveButton("Save", (d, which) -> {
+            dialog.setTitle("编辑字符串");
+            dialog.setPositiveButton("保存", (d, which) -> {
                 String keyInput = Objects.requireNonNull(dialogBinding.stringKeyInput.getText()).toString();
                 String valueInput = Objects.requireNonNull(dialogBinding.stringValueInput.getText()).toString();
                 if (keyInput.isEmpty() || valueInput.isEmpty()) {

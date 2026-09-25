@@ -104,9 +104,9 @@ public class ManageNativelibsActivity extends BaseAppCompatActivity implements V
 
     private void handleFab() {
         if (isInMainDirectory()) {
-            binding.showOptionsButton.setText("New folder");
+            binding.showOptionsButton.setText("新建文件夹");
         } else {
-            binding.showOptionsButton.setText("Import library");
+            binding.showOptionsButton.setText("导入库");
         }
     }
 
@@ -169,14 +169,14 @@ public class ManageNativelibsActivity extends BaseAppCompatActivity implements V
 
         var dialog = new MaterialAlertDialogBuilder(this)
                 .setView(dialogBinding.getRoot())
-                .setTitle("Create a new folder")
-                .setMessage("Enter the name of the new folder")
-                .setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss())
-                .setPositiveButton("Create", null)
+                .setTitle("创建新文件夹")
+                .setMessage("输入新文件夹的名称")
+                .setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setPositiveButton("创建", null)
                 .create();
 
         dialogBinding.chipGroupTypes.setVisibility(View.GONE);
-        textInputLayout.setHint("Folder name");
+        textInputLayout.setHint("文件夹名称");
 
         inputText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -233,7 +233,7 @@ public class ManageNativelibsActivity extends BaseAppCompatActivity implements V
 
     private void setupDialog() {
         FilePickerOptions options = new FilePickerOptions();
-        options.setTitle("Import Native Libraries");
+        options.setTitle("导入原生库");
         options.setMultipleSelection(true);
         options.setExtensions(new String[]{"so"});
         FilePickerCallback callback = new FilePickerCallback() {
@@ -262,8 +262,8 @@ public class ManageNativelibsActivity extends BaseAppCompatActivity implements V
         var dialog = new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.assets_manager_rename)
                 .setView(dialogBinding.getRoot())
-                .setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss())
-                .setPositiveButton("Rename", (dialogInterface, i) -> {
+                .setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setPositiveButton("重命名", (dialogInterface, i) -> {
                     String newName = Helper.getText(inputText);
                     if (!newName.isEmpty()) {
                         if (FileUtil.renameFile(path, path.substring(0, path.lastIndexOf(File.separator)) + File.separator + newName)) {

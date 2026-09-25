@@ -1204,23 +1204,23 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
 
                     MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(activity);
                     if (isMissingDirectory) {
-                        dialog.setTitle("Missing directory detected");
-                        dialog.setMessage("A directory important for building is missing. " +
+                        dialog.setTitle("检测到缺失的目录");
+                        dialog.setMessage("构建所需的重要目录缺失。" +
                                 "Sketchware Pro can try creating " + e.getMissingFile().getAbsolutePath() +
                                 " if you'd like to.");
-                        dialog.setNeutralButton("Create", (v, which) -> {
+                        dialog.setNeutralButton("创建", (v, which) -> {
                             v.dismiss();
                             if (!e.getMissingFile().mkdirs()) {
                                 SketchwareUtil.toastError("Failed to create directory / directories!");
                             }
                         });
                     } else {
-                        dialog.setTitle("Missing file detected");
-                        dialog.setMessage("A file needed for building is missing. " +
+                        dialog.setTitle("检测到缺失的文件");
+                        dialog.setMessage("构建所需的重要文件缺失。" +
                                 "Put the correct file back to " + e.getMissingFile().getAbsolutePath() +
                                 " and try building again.");
                     }
-                    dialog.setPositiveButton("Dismiss", null);
+                    dialog.setPositiveButton("关闭", null);
                     dialog.show();
                 });
             } catch (zy zy) {
@@ -1297,7 +1297,7 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(activity, CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_mtrl_code)
                         .setContentTitle("Building project")
-                        .setContentText("Starting build...")
+                        .setContentText("开始构建...")
                         .setOngoing(true)
                         .setProgress(0, 0, true)
                         .addAction(R.drawable.ic_cancel_white_96dp, "Cancel build", getCancelPendingIntent());

@@ -176,7 +176,7 @@ public class ManageCustomComponentActivity extends BaseAppCompatActivity {
 
     private void showFilePickerDialog() {
         FilePickerOptions options = new FilePickerOptions();
-        options.setTitle("Select .json selector file");
+        options.setTitle("选择 .json 选择器文件");
         options.setExtensions(new String[]{"json"});
 
         FilePickerCallback callback = new FilePickerCallback() {

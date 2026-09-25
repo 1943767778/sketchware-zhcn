@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:padding="16dp"
-            android:text="Editor\'s Choice"
+            android:text="编辑精选"
             android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
             android:textSize="20sp" />
 
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:padding="16dp"
-            android:text="New &amp; Updated"
+            android:text="新增与更新"
             android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
             android:textSize="20sp" />
 
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:padding="16dp"
-            android:text="Most downloaded projects"
+            android:text="下载最多的项目"
             android:textAppearance="?attr/textAppearanceTitleMediumEmphasized"
             android:textSize="20sp" />
 

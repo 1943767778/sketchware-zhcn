@@ -218,7 +218,29 @@ public class VariableItemView extends LinearLayout {
         return new Pair<>(selectedVariableItem.type, selectedVariableItem.name);
     }
 
-    private record VariableItem(String type, String name, @DrawableRes int icon) {
+    private static class VariableItem {
+
+        public final String type;
+        public final String name;
+        public final int icon;
+
+        VariableItem(String type, String name, int icon) {
+            this.type = type;
+            this.name = name;
+            this.icon = icon;
+        }
+
+        public String type() {
+            return type;
+        }
+
+        public String name() {
+            return name;
+        }
+
+        public int icon() {
+            return icon;
+        }
     }
 
     private class VariableItemAdapter extends RecyclerView.Adapter<VariableItemAdapter.ViewHolder> {

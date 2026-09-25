@@ -182,9 +182,9 @@ public class ManageJavaActivity extends BaseAppCompatActivity {
         var dialog = new MaterialAlertDialogBuilder(this)
                 .setView(dialogBinding.getRoot())
                 .setTitle(R.string.assets_manager_add_new)
-                .setMessage("File extension will be added automatically based on the file type you select")
-                .setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss())
-                .setPositiveButton("Create", null)
+                .setMessage("系统将根据所选文件类型自动添加扩展名")
+                .setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss())
+                .setPositiveButton("创建", null)
                 .create();
 
         dialog.setOnShowListener(dialogInterface -> {
@@ -265,7 +265,7 @@ public class ManageJavaActivity extends BaseAppCompatActivity {
         FilePickerOptions options = new FilePickerOptions();
         options.setMultipleSelection(true);
         options.setExtensions(new String[]{"java", "kt"});
-        options.setTitle("Select Java/Kotlin file(s)");
+        options.setTitle("选择 Java/Kotlin 文件");
 
         FilePickerCallback callback = new FilePickerCallback() {
             @Override
@@ -292,7 +292,7 @@ public class ManageJavaActivity extends BaseAppCompatActivity {
         var inputText = dialogBinding.inputText;
         var renameOccurrencesCheckBox = dialogBinding.renameOccurrencesCheckBox;
 
-        var dialog = new MaterialAlertDialogBuilder(this).setTitle("Rename " + filesAdapter.getFileName(position)).setView(dialogBinding.getRoot()).setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss()).setPositiveButton("Rename", (dialogInterface, i) -> {
+        var dialog = new MaterialAlertDialogBuilder(this).setTitle("重命名 " + filesAdapter.getFileName(position)).setView(dialogBinding.getRoot()).setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss()).setPositiveButton("重命名", (dialogInterface, i) -> {
             if (!Helper.getText(inputText).isEmpty()) {
                 if (!filesAdapter.isFolder(position)) {
                     if (frc.getJavaManifestList().contains(filesAdapter.getFullName(position))) {
@@ -321,7 +321,7 @@ public class ManageJavaActivity extends BaseAppCompatActivity {
 
         if (!isFolder) {
             renameOccurrencesCheckBox.setVisibility(View.VISIBLE);
-            renameOccurrencesCheckBox.setText("Rename occurrences of \"" + filesAdapter.getFileNameWoExt(position) + "\" in file");
+            renameOccurrencesCheckBox.setText("重命名出现的 \"" + filesAdapter.getFileNameWoExt(position) + "\" in file");
         }
         dialog.show();
 
@@ -332,7 +332,7 @@ public class ManageJavaActivity extends BaseAppCompatActivity {
     private void showDeleteDialog(int position) {
         boolean isInManifest = frc.getJavaManifestList().contains(filesAdapter.getFullName(position));
 
-        new MaterialAlertDialogBuilder(this).setTitle("Delete " + filesAdapter.getFileName(position) + "?").setMessage("Are you sure you want to delete this " + (filesAdapter.isFolder(position) ? "folder" : "file") + "? " + (isInManifest ? "This will also remove it from AndroidManifest. " : "") + "This action cannot be undone.").setPositiveButton(R.string.common_word_delete, (dialog, which) -> {
+        new MaterialAlertDialogBuilder(this).setTitle("删除 " + filesAdapter.getFileName(position) + "?").setMessage("确定要删除此 " + (filesAdapter.isFolder(position) ? "folder" : "file") + "? " + (isInManifest ? "This will also remove it from AndroidManifest. " : "") + "This action cannot be undone.").setPositiveButton(R.string.common_word_delete, (dialog, which) -> {
             if (!filesAdapter.isFolder(position) && isInManifest) {
                 frc.getJavaManifestList().remove(filesAdapter.getFullName(position));
                 FileUtil.writeFile(fpu.getManifestJava(sc_id), new Gson().toJson(frc.listJavaManifest));

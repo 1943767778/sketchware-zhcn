@@ -137,14 +137,14 @@ public class ManagePermissionActivity extends BaseAppCompatActivity {
 
     private void showResetDialog() {
         new MaterialAlertDialogBuilder(this)
-                .setTitle("Reset permissions")
-                .setMessage("Are you sure you want to reset all permissions?")
-                .setPositiveButton("Reset", (dialog, which) -> {
+                .setTitle("重置权限")
+                .setMessage("确定要重置所有权限吗？")
+                .setPositiveButton("重置", (dialog, which) -> {
                     FileUtil.writeFile(new FilePathUtil().getPathPermission(numProj), "[]");
                     frc = new FileResConfig(numProj);
                     loadAndSortData();
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton("取消", null)
                 .show();
     }
 
