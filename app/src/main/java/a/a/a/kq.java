@@ -126,9 +126,9 @@ public class kq {
 
     public static String a(int listType) {
         return switch (listType) {
-            case 1 -> "List Number";
-            case 2 -> "List String";
-            case 3 -> "List Map";
+            case 1 -> "数字列表";
+            case 2 -> "字符串列表";
+            case 3 -> "映射列表";
             default -> "";
         };
     }
@@ -149,7 +149,7 @@ public class kq {
     }
 
     public static String b(int var0) {
-        return var0 == 3 ? "Map" : "";
+        return var0 == 3 ? "映射" : "";
     }
 
     /**
@@ -176,9 +176,9 @@ public class kq {
             case "locationmanager" -> "LocationManager";
             case "switch" -> "Switch";
             case "imageview" -> "ImageView";
-            case "varInt" -> "Number";
-            case "varMap" -> "Map";
-            case "varStr" -> "String";
+            case "varInt" -> "数字";
+            case "varMap" -> "映射";
+            case "varStr" -> "字符串";
             case "searchview" -> "SearchView";
             case "firebase" -> "Firebase DB";
             case "bottomnavigation" -> "BottomNavigation";

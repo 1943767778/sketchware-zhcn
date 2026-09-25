@@ -10,7 +10,7 @@ import pro.sketchware.R;
 
 public class VB extends MB {
 
-    private final Pattern PATTERN = Pattern.compile("^[a-zA-Z][a-zA-Z0-9_]*");
+    private final Pattern PATTERN = Pattern.compile("^[\u4e00-\u9fff\u3400-\u4dbfA-Za-z_][\u4e00-\u9fff\u3400-\u4dbfA-Za-z0-9_]*");
 
     public VB(Context context, TextInputLayout textInputLayout) {
         super(context, textInputLayout);

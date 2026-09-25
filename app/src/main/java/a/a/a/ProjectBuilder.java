@@ -507,6 +507,9 @@ public class ProjectBuilder {
     public void compileJavaCode() throws zy, IOException {
         long savedTimeMillis = System.currentTimeMillis();
 
+        /* Map non-ASCII (Chinese) identifiers to stable English identifiers before compiling */
+        pro.sketchware.util.CnIdentifierSanitizer.sanitizeProjectSources(yq, fpu);
+
         class EclipseOutOutputStream extends OutputStream {
 
             private final StringBuffer mBuffer = new StringBuffer();

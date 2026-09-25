@@ -16,7 +16,7 @@ public class PropertyNameValidator extends MB {
     private final String[] reservedMethodNames;
     private final ArrayList<String> fileNames;
     private final String value;
-    private final Pattern pattern = Pattern.compile("^[a-zA-Z][a-zA-Z0-9_]*");
+    private final Pattern pattern = Pattern.compile("^[\u4e00-\u9fff\u3400-\u4dbfA-Za-z_][\u4e00-\u9fff\u3400-\u4dbfA-Za-z0-9_]*");
 
     public PropertyNameValidator(Context context, TextInputLayout textInputLayout,
                                  String[] reservedNames, String[] reservedMethodNames,

@@ -11,7 +11,7 @@ import pro.sketchware.R;
 
 public class ZB extends MB {
 
-    private static final Pattern validNamePattern = Pattern.compile("^[a-zA-Z][a-zA-Z0-9_]*");
+    private static final Pattern validNamePattern = Pattern.compile("^[\u4e00-\u9fff\u3400-\u4dbfA-Za-z_][\u4e00-\u9fff\u3400-\u4dbfA-Za-z0-9_]*");
     private final String[] restrictedNames;
     private final ArrayList<String> excludedNames;
     private String[] reservedNames;
